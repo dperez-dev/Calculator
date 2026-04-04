@@ -16,7 +16,6 @@ let exponent = function(valueA, valueB){
 let percentage = function(partialVal, totalVal){
     return (100 * partialVal) / totalVal;
 }
-const rowContainer = document.querySelector(".rowContainer");
 const btnOper = document.getElementsByClassName("btnOper");
 const btnNum = document.getElementsByClassName("btnNum");
 
@@ -26,9 +25,20 @@ let calcState = {
     numTwoVal: 0,
 }
 
-rowContainer.addEventListener("click", function(e){
-    if(e.target.classList.contains('btnNum')){
-        calcState.numOneVal = rowContainer.dataset.value;
+let operate = function(numOne, operator, numTwo){
+    if(operator === "+"){
+        return add(numOne, numTwo);
+    }
+    else if(operator === "-"){
+        return subtract(numOne, numTwo);
+    }
+}
+const rowContainer = document.querySelector(".rowContainer");
+addEventListener("click", function(e){
+    let target = e.target;
+    if(target.matches('rowContainer')){
+        let value = target.innerHTML
+
+        document.querySelector('#output').value += value;
     }
 })
-
