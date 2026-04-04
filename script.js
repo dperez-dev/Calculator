@@ -16,6 +16,7 @@ let exponent = function(valueA, valueB){
 let percentage = function(partialVal, totalVal){
     return (100 * partialVal) / totalVal;
 }
+const rowContainer = document.querySelector(".rowContainer");
 const btnOper = document.getElementsByClassName("btnOper");
 const btnNum = document.getElementsByClassName("btnNum");
 
@@ -26,19 +27,23 @@ let calcState = {
 }
 
 let operate = function(numOne, operator, numTwo){
-    if(operator === "+"){
-        return add(numOne, numTwo);
-    }
-    else if(operator === "-"){
-        return subtract(numOne, numTwo);
+    switch(operator) {
+        case "+":
+            return add(numOne, numTwo);
+        case "-":
+            return subtract(numOne, numTwo);
+        case "*":
+            return multiply(numOne, numTwo);
+        case "/":
+            return divide(numOne, numTwo);
+        case "^":
+            return exponent(numOne, numTwo);
+        case "%":
+            return percentage(numOne, numTwo);
+        default:
+            return "ERROR NOT A KNOWN OPERATOR";
     }
 }
-const rowContainer = document.querySelector(".rowContainer");
-addEventListener("click", function(e){
-    let target = e.target;
-    if(target.matches('rowContainer')){
-        let value = target.innerHTML
 
-        document.querySelector('#output').value += value;
-    }
+rowContainer.addEventListener("click", function(e){
 })
