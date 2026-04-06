@@ -16,14 +16,17 @@ let exponent = function(valueA, valueB){
 let percentage = function(partialVal, totalVal){
     return (100 * partialVal) / totalVal;
 }
-const rowContainer = document.querySelector(".rowContainer");
+
+
+const rowContainer = document.querySelectorAll(".rowContainer");
 const btnOper = document.getElementsByClassName("btnOper");
 const btnNum = document.getElementsByClassName("btnNum");
+const calcBtn = document.querySelectorAll(".calcBtn");
 
 let calcState = {
-    numOneVal: 0,
+    numOneVal: "",
     operatorVal: "",
-    numTwoVal: 0,
+    numTwoVal: "",
 }
 
 let operate = function(numOne, operator, numTwo){
@@ -45,5 +48,19 @@ let operate = function(numOne, operator, numTwo){
     }
 }
 
-rowContainer.addEventListener("click", function(e){
+calcBtn.forEach((btn) =>{
+    const numberVal = btn.classList.contains("btnNum");
+    const operatorVal = btn.classList.contains("btnOper");
+    btn.addEventListener("click", (e) =>{
+        if(numberVal && calcState.operatorVal === ""){
+           console.log(calcState.numOneVal += e.target.dataset.value);
+        }
+        else if(operatorVal && calcState.numOneVal != ""){
+            console.log(calcState.operatorVal = e.target.dataset.value);
+
+        }
+        else if(numberVal && calcState.operatorVal != "" && calcState.numOneVal !=""){
+            console.log(calcState.numTwoVal += e.target.dataset.value);
+        }
+    })
 })
