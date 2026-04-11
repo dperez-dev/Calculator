@@ -23,7 +23,7 @@ const btnOper = document.getElementsByClassName("btnOper");
 const btnNum = document.getElementsByClassName("btnNum");
 const calcBtn = document.querySelectorAll(".calcBtn");
 const enterBtn = document.querySelector("#enterBtn");
-const cleatBtn = document.querySelector("#btnClear");
+const clearBtn = document.querySelector("#btnClear");
 
 let calcState = {
     numOneVal: "",
@@ -35,17 +35,17 @@ let operate = function(numOne, operator, numTwo){
     switch(operator) {
         case "+":
             console.log(add(Number(numOne), Number(numTwo)));
-            return add(numOne, numTwo);
+            return add(Number(numOne), Number(numTwo));
         case "-":
-            return subtract(numOne, numTwo);
+            return subtract(Number(numOne), Number(numTwo));
         case "*":
-            return multiply(numOne, numTwo);
+            return multiply(Number(numOne), Number(numTwo));
         case "/":
-            return divide(numOne, numTwo);
+            return divide(Number(numOne), Number(numTwo));
         case "^":
-            return exponent(numOne, numTwo);
+            return exponent(Number(numOne), Number(numTwo));
         case "%":
-            return percentage(numOne, numTwo);
+            return percentage(Number(numOne), Number(numTwo));
         default:
             return "ERROR NOT A KNOWN OPERATOR";
     }
@@ -67,9 +67,6 @@ const checkNumTwoVal = function(numTwo){
         return true;
     }
 }
-const clear = function(){
-    return calcState.numOneVal = "", calcState.operatorVal = "", calcState.numTwoVal = "";
-}
 
 calcBtn.forEach((btn) =>{
     const numberVal = btn.classList.contains("btnNum");
@@ -77,19 +74,16 @@ calcBtn.forEach((btn) =>{
 
     btn.addEventListener("click", (e) =>{
         if(checkNumVal(numberVal)){
-           console.log(Number(calcState.numOneVal += e.target.dataset.value));
+           console.log(calcState.numOneVal += e.target.dataset.value);
         }
         else if(checkOperatorVal(operatorVal)){
             console.log(calcState.operatorVal = e.target.dataset.value);
-
         }
         else if(checkNumTwoVal(numberVal)){
-            console.log(Number(calcState.numTwoVal += e.target.dataset.value));
+            console.log(calcState.numTwoVal += e.target.dataset.value);
         }
         else if(enterBtn){
-            Number(operate(calcState.numOneVal, calcState.operatorVal, calcState.numTwoVal));
+            operate(calcState.numOneVal, calcState.operatorVal, calcState.numTwoVal);
         }
-        // else if(clear)
-    
     })
 })
