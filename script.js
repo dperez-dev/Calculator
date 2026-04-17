@@ -14,7 +14,7 @@ let exponent = function(valueA, valueB){
     return Math.pow(valueA, valueB);
 }
 let percentage = function(partialVal, totalVal){
-    return totalVal * partialVal;
+    return partialVal * (totalVal / 100);
 }
 //all above is the math functions
 
