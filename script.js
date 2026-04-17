@@ -14,19 +14,22 @@ let exponent = function(valueA, valueB){
     return Math.pow(valueA, valueB);
 }
 let percentage = function(partialVal, totalVal){
-    return (100 * partialVal) / totalVal;
+    return totalVal * partialVal;
 }
 //all above is the math functions
 
 const calcBtn = document.querySelectorAll(".calcBtn"); //gets all the buttons with said class, helps with classList
 const enterBtn = document.querySelector("#enterBtn"); //gets the enter button
 const clearBtn = document.querySelector("#btnClear"); //gets the clear button
+const dotButton = document.querySelector("#btnDor");
+
+
 
 let calcState = {
     numOneVal: "", //holds first number value
     operatorVal: "", //holds what operator is used
     numTwoVal: "", //holds second number operator
-
+    dot: false
 }
 
 let operate = function(numOne, operator, numTwo){
@@ -45,10 +48,10 @@ let operate = function(numOne, operator, numTwo){
             console.log(divide(Number(numOne), Number(numTwo)))
             return divide(Number(numOne), Number(numTwo));
         case "^":
-            console.log()
+            console.log(exponent(Number(numOne), Number(numTwo)))
             return exponent(Number(numOne), Number(numTwo));
         case "%":
-            console.log()
+            console.log(percentage(Number(numOne), Number(numTwo)))
             return percentage(Number(numOne), Number(numTwo));
         default:
             return "ERROR NOT A KNOWN OPERATOR";
@@ -73,6 +76,9 @@ const checkNumTwoVal = function(numTwo){
         return true;
     }
 }
+const clear = function(){
+    return calcState.numOneVal = "", calcState.operatorVal = "", calcState.numTwoVal = "";
+}
 
 
 clearBtn.addEventListener("click", ()=>{
@@ -84,24 +90,37 @@ calcBtn.forEach((btn) =>{
     const operatorVal = btn.classList.contains("btnOper");
 
     btn.addEventListener("click", (e) =>{
-        if(calcState.operatorVal != "" && calcState.numTwoVal !="" && calcState.numOneVal != ""){
-                calcState.numOneVal = operate(calcState.numOneVal, calcState.operatorVal, calcState.numTwoVal);
-                if(enterBtn){
-                    calcState.numTwoVal = "";
-                }
-        }
-        
+
         if(checkNumVal(numberVal)){
+            if(e.target.dataset.value === "."){
+                if(calcState.dot === true){return}
+                calcState.dot = true;
+            }
            console.log(calcState.numOneVal += e.target.dataset.value);
         }
 
         else if(checkOperatorVal(operatorVal)){
+            if(calcState.operatorVal != ""){
+                calcState.numOneVal = operate(calcState.numOneVal, calcState.operatorVal ,calcState.numTwoVal)
+                calcState.numTwoVal = "";
+            }
+            calcState.dot = false;
             console.log(calcState.operatorVal = e.target.dataset.value);
         }
 
         else if(checkNumTwoVal(numberVal)){
+            if(e.target.dataset.value === "."){
+                if(calcState.dot === true){return}
+                calcState.dot = true;
+            }
             console.log(calcState.numTwoVal += e.target.dataset.value);
         }
 
     })
+    
+})
+
+enterBtn.addEventListener("click", ()=>{
+    operate(calcState.numOneVal, calcState.operatorVal, calcState.numTwoVal);
+    clear();
 })
