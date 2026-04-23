@@ -1,13 +1,13 @@
 # calculator-Project
 ## Project to build a functioning calculator! 
-  % — find the percentage of a value (e.g. 50 % 2 → 1)
-  ^ — exponents for any two values
-  (-) — negative number support
-  nLogN — logarithmic base calculations
-  √ — square root
-  x² — square a value
-  PI — inserts the value of Pi
-  . — float/decimal input
+  - % — find the percentage of a value (e.g. 50 % 2 → 1)
+  - ^ — exponents for any two values
+  - (-) — negative number support
+  - nLogN — logarithmic base calculations
+  - √ — square root
+  - x² — square a value
+  - PI — inserts the value of Pi
+  - . — float/decimal input
 ## input handling
 - whats great is that ive added checks to make sure that you dont use "-" or "." more than once
 - you can chain values even after enter you can still add values
