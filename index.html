@@ -5,48 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="styleSheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    </style>
 </head>
 <body>
     <div id="mainBody">
-        <div class="containers" id="test">
+        <div id="test">
             <div id="display"></div>
-            <div id="previosExp"></div>
         </div>
         <div class="containers">
             <div class="rowContainer">
-                <button class=" btnOper calcBtn" data-value="(">(</button>
-                <button class=" btnOper calcBtn" data-value=")" >)</button>
+                <button class=" btnOper calcBtn" data-value="*">*</button>
                 <button class=" btnOper calcBtn" data-value="%">%</button>
+                <button class=" btnOper calcBtn" data-value="^">^</button>
                 <button class="calcBtn" id="btnClear">clear</button>
             </div>
             <div class="rowContainer">
                 <button class=" btnOper calcBtn" data-value="+">+</button>
                 <button class=" btnOper calcBtn" data-value="-">-</button>
-                <button class=" btnOper calcBtn" data-value="*">*</button>
                 <button class=" btnOper calcBtn" data-value="/">/</button>
+                <button class=" btnNum calcBtn" data-value="-">(-)</button>
             </div>
             <div class="rowContainer">
-                <button class=" btnNum calcBtn" data-value="1">1</button>
-                <button class=" btnNum calcBtn" data-value="2">2</button>
-                <button class=" btnNum calcBtn" data-value="3">3</button>
-                <button class=" btnOper calcBtn" data-value="^">^</button>
+                <button class=" btnNum calcBtn numColor" data-value="1">1</button>
+                <button class=" btnNum calcBtn numColor" data-value="2">2</button>
+                <button class=" btnNum calcBtn numColor" data-value="3">3</button>
+                <button class=" btnOper calcBtn" data-value="log">(nlogN)</button>
             </div>
             <div class="rowContainer">
-                <button class=" btnNum calcBtn" data-value="4">4</button>
-                <button class=" btnNum calcBtn" data-value="5">5</button>
-                <button class=" btnNum calcBtn" data-value="6">6</button>
-                <button class=" btnNegative calcBtn">(-)</button>
+                <button class=" btnNum calcBtn numColor" data-value="4">4</button>
+                <button class=" btnNum calcBtn numColor" data-value="5">5</button>
+                <button class=" btnNum calcBtn numColor" data-value="6">6</button>
+                <button class=" btnOper calcBtn" data-value="√">(√)</button>
             </div>
             <div class="rowContainer">
-                <button class=" btnNum calcBtn" data-value="7">7</button>
-                <button class=" btnNum calcBtn" data-value="8">8</button>
-                <button class=" btnNum calcBtn" data-value="9">9</button>
+                <button class=" btnNum calcBtn numColor" data-value="7">7</button>
+                <button class=" btnNum calcBtn numColor" data-value="8">8</button>
+                <button class=" btnNum calcBtn numColor" data-value="9">9</button>
                 <button class="calcBtn btnNum" data-value=".">.</button>
             </div>
             <div class="rowContainer">
-                <button class=" btnNum calcBtn" data-value="0">0</button>
-                <button class=" calcBtn" ></button>
-                <button class=" calcBtn" ></button>
+                <button class=" btnNum calcBtn numColor" data-value="0">0</button>
+                <button class=" btnNum calcBtn" data-value="3.1416" >(PI)</button>
+                <button class=" btnOper calcBtn" data-value="^2" >(x^2)</button>
                 <button class=" calcBtn" id="enterBtn" >Enter</button>
             </div>
         </div>
