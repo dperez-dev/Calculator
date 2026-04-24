@@ -1,7 +1,8 @@
-# calculator-Project
+# calculator-Project 🔢
 ## Project to build a functioning calculator! 
+📐e = ∑∞ⁿ⁼⁰ ¹ₙ🤓
 
-## Features
+## Features + × ÷ -
 Basic Operators: Addition, subtraction, multiplication, and division
 ## special operators
   - % — find the percentage of a value (e.g. 50 % 2 → 1)
