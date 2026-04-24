@@ -2,7 +2,7 @@
 ## Project to build a functioning calculator! 
 
 ## Features
-###Basic Operators: Addition, subtraction, multiplication, and division
+Basic Operators: Addition, subtraction, multiplication, and division
 ## special operators
   - % — find the percentage of a value (e.g. 50 % 2 → 1)
   - ^ — exponents for any two values
