@@ -1,7 +1,6 @@
 # calculator-Project 🔢
 ## Project to build a functioning calculator! 
-📐e = ∑∞ⁿ⁼⁰ ¹ₙ🤓
-
+## [Try it out!](https://dperez-dev.github.io/Calculator/)
 ## Features + × ÷ -
 Basic Operators: Addition, subtraction, multiplication, and division
 ## special operators
